@@ -9,6 +9,7 @@ module.exports = (sequelize) => sequelize.define('consultants', {
   price: DataTypes.FLOAT,
   description: DataTypes.TEXT,
   availability: DataTypes.STRING,
+  communications: DataTypes.STRING,
   webpage: DataTypes.STRING,
   telephone: DataTypes.NUMBER,
   curricullum: DataTypes.BLOB,

@@ -10,9 +10,12 @@ const User = sequelize.define('users', {
   type: DataTypes.STRING,
   email: DataTypes.STRING,
   password: DataTypes.STRING,
+  telephone: DataTypes.NUMBER,
+  celphone: DataTypes.NUMBER,
   createdAt: DataTypes.DATE,
-  updatedAt: DataTypes.DATE
-}, {
+  updatedAt: DataTypes.DATE,
+}, 
+{
     hooks: {
       beforeCreate: (user) => {
         const salt = bcrypt.genSaltSync();
