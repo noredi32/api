@@ -15,28 +15,28 @@ router.get('/', permission('admin' , 'client'), async (req, res) => {
 // Create a new consultant
 router.post('/',  permission('admin', 'consultant'), async (req, res) => {
     const { body } = req;
-    const consultant = await sequelize.models.consultant.create({
-        name_large: body.name_large,
+    const consultant = await sequelize.models.consultants.create({
+        namelarge: body.namelarge,
         image: body.image,
         title: body.title,
-        description_short: body.description_short,
+        descriptionshort: body.descriptionshort,
         price: body.price,
         description: body.description,
         availability: body.availability,
         communications: body.communications,
         webpage: body.webpage,
-        telephone: body.telephone,
+        phone: body.phone,
         curricullum: body.curricullum,
         cedula: body.cedula,
         address: body.address,
-    });
+    })
     await consultant.save();
     return res.status(201).json({ data: consultant })
 });
 
 
 // Update a consultant by id
-router.put('/:id', permission('admin', 'consultant'), async (req, res) => {
+router.put('/:id', permission('admin'), async (req, res) => {
     const { body, params: { id } } = req;
     const consultant = await sequelize.models.consultants.findByPk(id);
     if (!consultant) {
@@ -44,16 +44,16 @@ router.put('/:id', permission('admin', 'consultant'), async (req, res) => {
       }
 
       const updatedConsultant = await consultant.update({
-        name_large: body.name_large,
+        namelarge: body.namelarge,
         image: body.image,
         title: body.title,
-        description_short: body.description_short,
+        descriptionshort: body.descriptionshort,
         price: body.price,
         description: body.description,
         availability: body.availability,
         communications: body.communications,
         webpage: body.webpage,
-        telephone: body.telephone,
+        phone: body.phone,
         curricullum: body.curricullum,
         cedula: body.cedula,
         address: body.address,
@@ -66,7 +66,7 @@ router.put('/:id', permission('admin', 'consultant'), async (req, res) => {
 // Delete a consultant by id
 router.delete('/:id', permission('admin', 'consultant'), async (req, res) => {
   const { params: { id } } = req;
-  const consultant = await sequelize.models.consultant.findByPk(id);
+  const consultant = await sequelize.models.consultants.findByPk(id);
   if (!consultant) {
     return res.status(404).json({ code: 404, message: 'Consultant not found' });
   }

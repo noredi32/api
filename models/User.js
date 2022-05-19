@@ -1,7 +1,8 @@
-const { DataTypes, Sequelize } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 
 module.exports = (sequelize) => {
+
 const User = sequelize.define('users', {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   name: DataTypes.STRING,
@@ -10,8 +11,8 @@ const User = sequelize.define('users', {
   type: DataTypes.STRING,
   email: DataTypes.STRING,
   password: DataTypes.STRING,
-  telephone: DataTypes.NUMBER,
-  celphone: DataTypes.NUMBER,
+  phone: DataTypes.NUMBER,
+  mobile: DataTypes.NUMBER,
   createdAt: DataTypes.DATE,
   updatedAt: DataTypes.DATE,
 }, 
@@ -26,7 +27,7 @@ const User = sequelize.define('users', {
   
   User.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
-  };
+  }
 
   return User;
-};
+}

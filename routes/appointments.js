@@ -12,7 +12,7 @@ router.get('/', permission('admin'), async (req, res) => {
 // Creating a new appointment
 router.post('/', permission('admin', 'client'), async (req, res) => {
   const { body } = req;
-  const order = await sequelize.models.appointments.create({
+  const appointment = await sequelize.models.appointments.create({
     userId: body.userId,
     consultantId: body.consultantId,
     date: body.date,
@@ -27,7 +27,7 @@ router.put('/:id', permission('admin', 'client'), async (req, res) => {
   const { body, params: { id } } = req;
   const appointment = await sequelize.models.appointments.findByPk(id);
   if (!appointment) {
-    return res.status(404).json({ code: 404, message: 'appointment not found' });
+    return res.status(404).json({ code: 404, message: 'Appointment not found' });
   }
   const updatedAppointment = await appointment.update({
     userId: body.userId,
@@ -41,9 +41,9 @@ router.put('/:id', permission('admin', 'client'), async (req, res) => {
 // Delete an appointment by id
 router.delete('/:id', permission('admin', 'client'), async (req, res) => {
   const { params: { id } } = req;
-  const appointment = await sequelize.models.appointment.findByPk(id);
+  const appointment = await sequelize.models.appointments.findByPk(id);
   if (!appointment) {
-    return res.status(404).json({ code: 404, message: 'appointment not found' });
+    return res.status(404).json({ code: 404, message: 'Appointment not found' });
   }
   await appointment.destroy();
   return res.json();

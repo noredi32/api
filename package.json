@@ -17,9 +17,19 @@
     "helmet": "^5.1.0",
     "jsonwebtoken": "^8.5.1",
     "mariadb": "^3.0.0",
-    "sequelize": "^6.19.1"
+    "mysql": "^2.18.1",
+    "sequelize": "^6.19.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
-  }
+    "nodemon": "^2.0.16",
+    "sequelize-cli": "^6.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noredi32/api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/noredi32/api/issues"
+  },
+  "homepage": "https://github.com/noredi32/api#readme"
 }

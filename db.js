@@ -7,7 +7,7 @@ const User = require('./models/User');
 const Appointment = require('./models/Appointment');
 
 // Database connection
-const sequelize = new Sequelize('askmexapi', 'root', 'root', {
+const sequelize = new Sequelize('askmesapi', 'root', 'root', {
     host: 'localhost',
     dialect: 'mariadb',
     logging: false,

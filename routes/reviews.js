@@ -13,11 +13,11 @@ router.get('/', permission('admin', 'client'), async (req, res) => {
 router.post('/', permission('admin', 'client'), async (req, res) => {
   const { body } = req;
   const review = await sequelize.models.reviews.create({
+    consultantId: body.consultantId,
     content: body.content,
-    productId: body.productId,
   });
   await review.save();
-  return res.status(201).json({ data: review });
+  return res.status(201).json({ data: reviews });
 });
 
 // Update a review by id
