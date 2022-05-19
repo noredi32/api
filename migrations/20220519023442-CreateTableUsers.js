@@ -8,21 +8,16 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-
-     await queryInterface.createTable('reviews', { 
+     await queryInterface.createTable('users', {
       id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
-      content: Sequelize.TEXT,
-      consultantId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'consultants',
-          key: 'id',
-        },
-        onDelete: 'CASCADE',
-      },
+      name: Sequelize.STRING,
+      lastname: Sequelize.STRING,
+      type: Sequelize.STRING,
+      email: Sequelize.STRING,
+      password: Sequelize.STRING,
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE,
-    })    
+    })
   },
 
   async down (queryInterface, Sequelize) {
@@ -32,6 +27,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-     await queryInterface.dropTable('reviews');
+     await queryInterface.dropTable('users');
   }
 };

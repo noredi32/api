@@ -4,7 +4,7 @@ module.exports = (sequelize) => sequelize.define('reviews', {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   content: DataTypes.TEXT,
   consultantId: {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     references: {
       model: 'consultants',
       key: 'id',

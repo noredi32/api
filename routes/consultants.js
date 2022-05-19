@@ -13,10 +13,12 @@ router.get('/', permission('admin' , 'client'), async (req, res) => {
 
 
 // Create a new consultant
-router.post('/',  permission('admin', 'consultant'), async (req, res) => {
+router.post('/',  permission('admin', 'client'), async (req, res) => {
     const { body } = req;
     const consultant = await sequelize.models.consultants.create({
-        namelarge: body.namelarge,
+        name: body.name,
+        email: body.email,
+        password: body.password,
         image: body.image,
         title: body.title,
         descriptionshort: body.descriptionshort,
@@ -44,7 +46,9 @@ router.put('/:id', permission('admin'), async (req, res) => {
       }
 
       const updatedConsultant = await consultant.update({
-        namelarge: body.namelarge,
+        name: body.name,
+        email: body.email,
+        password: body.password,
         image: body.image,
         title: body.title,
         descriptionshort: body.descriptionshort,
@@ -64,7 +68,7 @@ router.put('/:id', permission('admin'), async (req, res) => {
 
 
 // Delete a consultant by id
-router.delete('/:id', permission('admin', 'consultant'), async (req, res) => {
+router.delete('/:id', permission('admin', 'client'), async (req, res) => {
   const { params: { id } } = req;
   const consultant = await sequelize.models.consultants.findByPk(id);
   if (!consultant) {

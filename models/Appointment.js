@@ -18,8 +18,8 @@ module.exports = (sequelize) => sequelize.define('appointments', {
     },
     onDelete: 'CASCADE',
   },
-  date: DataTypes.DATE,
-  time: DataTypes.TIME,
+  day: DataTypes.DATE,
+  schedule: DataTypes.TIME,
   createdAt: DataTypes.DATE,
   updatedAt: DataTypes.DATE,
 });

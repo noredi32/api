@@ -15,8 +15,8 @@ router.post('/', permission('admin', 'client'), async (req, res) => {
   const appointment = await sequelize.models.appointments.create({
     userId: body.userId,
     consultantId: body.consultantId,
-    date: body.date,
-    time: body.time,
+    day: body.day,
+    schedule: body.schedule,
   });
   await appointment.save();
   return res.status(201).json({ data: appointment });
@@ -32,8 +32,8 @@ router.put('/:id', permission('admin', 'client'), async (req, res) => {
   const updatedAppointment = await appointment.update({
     userId: body.userId,
     consultantId: body.consultantId,
-    date: body.date,
-    time: body.time,
+    day: body.day,
+    schedule: body.schedule,
   });
   return res.json({ data: updatedAppointment });
 });

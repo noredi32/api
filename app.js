@@ -17,7 +17,7 @@ app.listen(3001, () => {
 var conexion = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: 'Umbrella34',
     database: 'askmesapi',
     port: '3306',
 });
