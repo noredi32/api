@@ -27,7 +27,7 @@ router.post('/', permission('admin'), async (req, res) => {
 
 
     // Update a user by id
-    router.put('/:id', permission('admin'), async (req, res) => {
+ router.put('/:id', permission('admin'), async (req, res) => {
     const { body, params: { id } } = req;
     const user = await sequelize.models.users.findByPk(id);
     if (!user) {

@@ -11,7 +11,7 @@ module.exports = {
         await queryInterface.createTable('appointments', {
             id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
             day: Sequelize.DATE,
-            schedule: Sequelize.TIME,
+            time: Sequelize.TIME,
             userId: {
                 type: Sequelize.INTEGER,
                 references: {

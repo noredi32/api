@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 
+
 module.exports = (sequelize) => {
 
 const User = sequelize.define('users', {
@@ -10,8 +11,8 @@ const User = sequelize.define('users', {
     type: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    phone: DataTypes.NUMBER,
-    mobile: DataTypes.NUMBER,
+    phone: DataTypes.STRING,
+    mobile: DataTypes.STRING,
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE,
   },

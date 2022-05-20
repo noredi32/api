@@ -5,15 +5,15 @@ const permission = require('../middlewares/permission');
 // CRUD  get post put delete
 
 
-// Get all consultants
+// Get all products
 router.get('/', permission('admin' , 'client'), async (req, res) => {
     const consultants = await sequelize.models.consultants.findAndCountAll()
     return res.status(200).json({ data: consultants });
 });
 
 
-// Create a new consultant
-router.post('/',  permission('admin', 'client'), async (req, res) => {
+// Create a new product
+router.post('/',  permission('admin'), async (req, res) => {
     const { body } = req;
     const consultant = await sequelize.models.consultants.create({
         name: body.name,
@@ -37,7 +37,7 @@ router.post('/',  permission('admin', 'client'), async (req, res) => {
 });
 
 
-// Update a consultant by id
+// Update a product by id
 router.put('/:id', permission('admin'), async (req, res) => {
     const { body, params: { id } } = req;
     const consultant = await sequelize.models.consultants.findByPk(id);
@@ -46,7 +46,6 @@ router.put('/:id', permission('admin'), async (req, res) => {
       }
 
       const updatedConsultant = await consultant.update({
-        name: body.name,
         email: body.email,
         password: body.password,
         image: body.image,
@@ -67,8 +66,8 @@ router.put('/:id', permission('admin'), async (req, res) => {
 });
 
 
-// Delete a consultant by id
-router.delete('/:id', permission('admin', 'client'), async (req, res) => {
+// Delete a product by id
+router.delete('/:id', permission('admin'), async (req, res) => {
   const { params: { id } } = req;
   const consultant = await sequelize.models.consultants.findByPk(id);
   if (!consultant) {
