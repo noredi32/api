@@ -13,10 +13,10 @@ router.get('/', permission('admin'), async (req, res) => {
 router.post('/', permission('admin', 'client'), async (req, res) => {
   const { body } = req;
   const appointment = await sequelize.models.appointments.create({
-    userId: body.userId,
-    consultantId: body.consultantId,
     day: body.day,
     schedule: body.schedule,
+    userId: body.userId,
+    consultantId: body.consultantId,
   });
   await appointment.save();
   return res.status(201).json({ data: appointment });
@@ -30,10 +30,10 @@ router.put('/:id', permission('admin', 'client'), async (req, res) => {
     return res.status(404).json({ code: 404, message: 'Appointment not found' });
   }
   const updatedAppointment = await appointment.update({
-    userId: body.userId,
-    consultantId: body.consultantId,
     day: body.day,
     schedule: body.schedule,
+    userId: body.userId,
+    consultantId: body.consultantId,
   });
   return res.json({ data: updatedAppointment });
 });

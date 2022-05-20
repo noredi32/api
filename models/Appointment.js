@@ -2,6 +2,8 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => sequelize.define('appointments', {
  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  day: DataTypes.DATE,
+  schedule: DataTypes.TIME,
   userId: {
     type: DataTypes.INTEGER,
     references: {
@@ -18,8 +20,6 @@ module.exports = (sequelize) => sequelize.define('appointments', {
     },
     onDelete: 'CASCADE',
   },
-  day: DataTypes.DATE,
-  schedule: DataTypes.TIME,
   createdAt: DataTypes.DATE,
   updatedAt: DataTypes.DATE,
 });

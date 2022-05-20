@@ -15,7 +15,6 @@ router.post('/', permission('admin'), async (req, res) => {
     const user = await sequelize.models.users.create({
         name: body.name,
         lastname: body.lastname,
-        surname: body.surname,
         type: body.type,
         email: body.email,
         password: body.password,
@@ -37,7 +36,6 @@ router.post('/', permission('admin'), async (req, res) => {
   const updatedUser = await user.update({
         name: body.name,
         lastname: body.lastname,
-        surname: body.surname,
         type: body.type,
         email: body.email,
         password: body.password,

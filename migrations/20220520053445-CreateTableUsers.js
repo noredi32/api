@@ -3,34 +3,23 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     /**
-  nameData   * Add altering commands here.
+     * Add altering commands here.
      *
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-
-     await queryInterface.createTable('consultants', {
+     await queryInterface.createTable('users', {
       id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
       name: Sequelize.STRING,
+      lastname: Sequelize.STRING,
+      type: Sequelize.STRING,
       email: Sequelize.STRING,
       password: Sequelize.STRING,
-      image: Sequelize.BLOB,
-      title: Sequelize.STRING,
-      descriptionshort: Sequelize.TEXT,
-      price: Sequelize.FLOAT,
-      description: Sequelize.TEXT,
-      availability: Sequelize.STRING,
-      webpage: Sequelize.STRING,
       phone: Sequelize.NUMBER,
-      curricullum: Sequelize.BLOB,
-      cedula: Sequelize.BLOB,
-      address: Sequelize.STRING,
+      mobile: Sequelize.NUMBER,
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE,
-     })
-
-
-
+    })
   },
 
   async down (queryInterface, Sequelize) {
@@ -40,6 +29,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-     await queryInterface.dropTable('consultants');
+     await queryInterface.dropTable('users');
   }
 };

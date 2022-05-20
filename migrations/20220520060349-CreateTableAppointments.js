@@ -10,6 +10,8 @@ module.exports = {
          */
         await queryInterface.createTable('appointments', {
             id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
+            day: Sequelize.DATE,
+            schedule: Sequelize.TIME,
             userId: {
                 type: Sequelize.INTEGER,
                 references: {
@@ -26,8 +28,6 @@ module.exports = {
                 },
                 onDelete: 'CASCADE',
             },
-            day: Sequelize.DATE,
-            schedule: Sequelize.TIME, 
             createdAt: Sequelize.DATE,
             updatedAt: Sequelize.DATE,
         });
