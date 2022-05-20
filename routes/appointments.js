@@ -4,7 +4,6 @@ const sequelize = require('../db');
 const permission = require('../middlewares/permission');
 
 
-
 router.get('/', permission('admin'), async (req, res) => {
   const appointments = await sequelize.models.appointments.findAndCountAll();
   return res.status(200).json({ data: appointments });
