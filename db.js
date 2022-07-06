@@ -7,8 +7,8 @@ const User = require('./models/User');
 const Appointment = require('./models/Appointment');
 
 // Database connection
-const sequelize = new Sequelize('askmesapi', 'root', 'Umbrella34', {
-    host: 'localhost',
+const sequelize = new Sequelize('n4m3x5ti89xl6czh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', 'jw9f7dmzh363vqjh', 'k4w6qfjrbznvhum1', {
+    host: 'n4m3x5ti89xl6czh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
     dialect: 'mariadb',
     logging: false,
   });

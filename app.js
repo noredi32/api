@@ -14,7 +14,7 @@ app.use('/api', require('./routes'));
     console.log(`Express on port 3001`);
 });*/
 
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 3306
 
 app.listen(PORT, function() {
     console.log('Conexión exitosa, servidor escuchando en el puerto', PORT)
