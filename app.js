@@ -3,7 +3,6 @@ const app = express();
 const helmet = require('helmet');
 const cors = require('cors');
 const mysql = require('mysql');
-const Appointment = require('./models/Appointment');
 app.use(helmet());
 app.use(cors());
 
@@ -21,11 +20,12 @@ app.listen(3001, () => {
     password: 'Umbrella34',
     database: 'askmesapi',
     port: '3306',
-});
-*/
+});*/
 
-const PORT = process.env.PORT || 4000
-
-app.listen(PORT, function() {
-    console.log('Conexión exitosa, servidor escuchando en el puerto', PORT)
+conexion.connect(function(error) {
+    if (error) {
+        throw error;
+    } else {
+        console.log('Conexión exitosa');
+    }
 })
