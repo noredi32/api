@@ -3,6 +3,7 @@ const app = express();
 const helmet = require('helmet');
 const cors = require('cors');
 const mysql = require('mysql');
+const Appointment = require('./models/Appointment');
 app.use(helmet());
 app.use(cors());
 
@@ -14,18 +15,17 @@ app.listen(3001, () => {
     console.log(`Express on port 3001`);
 });
 
-var conexion = mysql.createConnection({
+/*var conexion = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'root2',
+    password: 'Umbrella34',
     database: 'askmesapi',
     port: '3306',
 });
+*/
 
-conexion.connect(function(error) {
-    if (error) {
-        throw error;
-    } else {
-        console.log('Conexión exitosa');
-    }
+const PORT = process.env.PORT || 4000
+
+app.listen(PORT, function() {
+    console.log('Conexión exitosa, servidor escuchando en el puerto', PORT)
 })
