@@ -1,11 +1,11 @@
 {
     "development": {
-      "username": "root",
-      "password": "Umbrella34",
-      "database": "askmesapi",
-      "host": "127.0.0.1",
+      "username": "b62d42f0eb10ff",
+      "password": "beca043a",
+      "database": "heroku_0934279acadb2ff",
+      "host": "us-cdbr-east-06.cleardb.net",
       "port": "3306",
-      "dialect": "mariadb"
+      "dialect": "mysql"
     }
   }
   
