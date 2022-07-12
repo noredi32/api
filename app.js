@@ -10,14 +10,26 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api', require('./routes'));
+/*app.listen(3306, () => {
+    console.log(`Express on port 3306`);
+});*/
 
-app.set('port', (process.env.PORT || 3000 ));
+app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
+    console.log("Server is running.");
+  });
 
-//For avoidong Heroku $PORT error
-app.get('/', function(request, response) {
-    var result = 'App is running'
-    response.send(result);
-}).listen(app.get('port'), function() {
-    console.log('App is running, server is listening on port ', app.get('port'));
+var conexion = mysql.createConnection({
+    host: 'us-cdbr-east-06.cleardb.net',
+    user: 'b62d42f0eb10ff',
+    password: 'beca043a',
+    database: 'heroku_0934279acadb2ff',
+    port: '3000',
 });
 
+conexion.connect(function(error) {
+    if (error) {
+        throw error;
+    } else {
+        console.log('Conexión exitosa');
+    }
+})
