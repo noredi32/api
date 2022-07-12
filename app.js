@@ -10,8 +10,10 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api', require('./routes'));
-app.listen(3306, () => {
-    console.log(`Express on port 3306`);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Tu aplicacion corre en el puerto ${ PORT }`);
 });
 
 var conexion = mysql.createConnection({
