@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api', require('./routes'));
 
-app.set('port', (process.env.PORT || 3306));
+app.set('port', (process.env.PORT || 8080 ));
 
 //For avoidong Heroku $PORT error
 app.get('/', function(request, response) {
