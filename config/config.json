@@ -4,8 +4,7 @@
       "password": "beca043a",
       "database": "heroku_0934279acadb2ff",
       "host": "us-cdbr-east-06.cleardb.net",
-      "port": "3306",
-      "dialect": "mysql"
+      "port": "3306"
     }
   }
   
