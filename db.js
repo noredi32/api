@@ -9,6 +9,7 @@ const Appointment = require('./models/Appointment');
 // Database connection
 const sequelize = new Sequelize('heroku_0934279acadb2ff', 'b62d42f0eb10ff', 'beca043a', {
     host: 'us-cdbr-east-06.cleardb.net',
+    dialect: 'mariadb',
     logging: false,
   });
 
