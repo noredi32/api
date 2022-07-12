@@ -5,7 +5,7 @@
       "database": "heroku_0934279acadb2ff",
       "host": "us-cdbr-east-06.cleardb.net",
       "port": "3001",
-      "dialect": "mariadb"
+      "dialect": "mysql"
     }
   }
   
