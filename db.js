@@ -7,9 +7,9 @@ const User = require('./models/User');
 const Appointment = require('./models/Appointment');
 
 // Database connection
-const sequelize = new Sequelize('askmesapi', 'root', 'root2', {
-    host: 'localhost',
-    dialect: 'mariadb',
+const sequelize = new Sequelize('heroku_5524c97dc1fb649', 'b0295727c6494e', 'd20a8458', {
+    host: 'us-cdbr-east-06.cleardb.net',
+    dialect: 'mysql',
     logging: false,
   });
 
